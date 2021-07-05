@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const YourApp = () => {
+const NotesPage = () => {
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text>
@@ -11,4 +11,4 @@ const YourApp = () => {
     );
 }
 
-export default YourApp;
+export default NotesPage;

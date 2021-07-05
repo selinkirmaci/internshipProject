@@ -1,22 +1,45 @@
 import React from 'react';
-import {Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View,Dimensions} from 'react-native';
+import {Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View,Dimensions,ScrollView} from 'react-native';
 import Box from "./Box";
 import * as Animatable from 'react-native-animatable';
-
-
-
-
+import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5";
 
 
 const HomepageUI = (props) => {
     const {width,height} = Dimensions.get('window');
 
-
+    const handleAnasayfa = () =>{
+        props.navigation.navigate('Homepage2');
+    }
     const handleBelediyePress = () =>{
         props.navigation.navigate('BelediyePage');
     }
+    const handleMahallePress = () =>{
+        props.navigation.navigate('MahallePage');
+    }
+    const handlePersonelPress = () =>{
+        props.navigation.navigate('PersonelPage');
+    }
+    const handleMaliPress = () =>{
+        props.navigation.navigate('MaliPage');
+    }
+    const handleMüdürlükPress = () =>{
+        props.navigation.navigate('MüdürlükPage');
+    }
+    const handleGündemPress = () =>{
+        props.navigation.navigate('GündemHomepage');
+    }
+
+
 
     const boxes = [
+        {
+            id:121,
+            title: 'Anasayfa',
+            icons: 'home',
+            handlePress: handleAnasayfa,
+
+        },
         {
             id:121,
             title: 'Belediyemiz',
@@ -27,25 +50,35 @@ const HomepageUI = (props) => {
         {
             id:122,
             title: 'Personel',
-            icons: 'users'
+            icons: 'users',
+            handlePress: handlePersonelPress,
 
         },
         {
             id:123,
             title: 'Mali İşler',
-            icons: 'money-check-alt'
+            icons: 'money-check-alt',
+            handlePress: handleMaliPress,
 
         },
         {
             id:124,
+            title: 'Müdürlükler',
+            icons: 'building',
+            handlePress: handleMüdürlükPress,
+        },
+        {
+            id:124,
             title: 'Mahalleler',
-            icons: 'home'
-
+            icons: 'city',
+            handlePress: handleMahallePress,
         },
         {
             id:125,
             title: 'Gündem',
-            icons: 'newspaper'
+            icons: 'newspaper',
+            handlePress: handleGündemPress,
+
         },
         {
             id:126,
@@ -82,11 +115,15 @@ const HomepageUI = (props) => {
         <View style={styles.container}>
             <View style={StyleSheet.absoluteFill}>
                 <ImageBackground
-                    source={require('../assets/backgroundTeraMobile.jpeg')}
+                    source={require('../assets/whiteBackground.jpg')}
                     style={{flex: 1, width: null, height: null}}>
-                    <Text  style={{marginVertical:height/2.2,marginLeft:width/5,fontSize:50,opacity:0.3,fontWeight:'bold',fontStyle:'italic'}}>TeraMobil</Text>
                 </ImageBackground>
             </View>
+            <View style={{flexDirection:'row'}}>
+                 <Text style={{textAlign:'center',fontWeight:'bold',fontSize:23,fontStyle:'italic',marginRight:3}}>Nasıl yardımcı olabilirim?</Text>
+                <FontAwesome5Icon style = {{marginLeft:20}} name='times' size={27} onPress={()=>{props.navigation.closeDrawer();}}></FontAwesome5Icon>
+            </View>
+
                 {
                     boxes.map((event,index) =>
                         {
@@ -113,10 +150,11 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,
         backgroundColor: 'black',
+        justifyContent:'center'
     },
     box:{
-        width: '50%',
-        height: '20%',
+        width: '45%',
+        height: '16%',
         padding: 5,
         borderRadius: 40,
     },

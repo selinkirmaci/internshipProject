@@ -31,7 +31,7 @@ const {Value,
     Extrapolate } = Animated;
 const {width, height} = Dimensions.get('window');
 
-export default function LoginForm (props){
+export default function LoginForm (props,{navigation}){
     const [visibale,setVisiable] = React.useState(false);
     const [visiableIcon,setVisiableIcon] = React.useState("eye-slash");
     const [secureTextEntry,setSecureTextEntry] = React.useState(true);
@@ -64,7 +64,8 @@ export default function LoginForm (props){
         }
     }
     const handleLogin = () =>{
-        props.navigation.navigate("Homepage");
+        props.navigation.navigate("Homepage",{
+        });
 
     }
         return (
@@ -160,5 +161,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginVertical: 10,
     }
-
 });

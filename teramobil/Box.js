@@ -5,10 +5,7 @@ import {FontAwesome5} from "@expo/vector-icons";
 
 const Box = (props) => {
     return (
-        <Animatable.View
-            animation='fadeIn'
-            duration={1000}
-            delay={150*props.index}
+        <View
             style={props.style}>
             <View style={{...StyleSheet.absoluteFill,opacity:0.7,borderRadius:10}}>
                 <Image
@@ -16,11 +13,11 @@ const Box = (props) => {
                     style={{flex: 1, width: null, height: null,borderRadius:20}}>
                 </Image>
             </View>
-            <View>
-                <FontAwesome5 name={props.icon} size={50} style={{marginVertical: 10,marginHorizontal:53,width: 100}}></FontAwesome5>
+            <View style={{justifyContent:'center',alignContent:'center',flexDirection:'column'}}>
+                <FontAwesome5 name={props.icon} size={50} style={{marginVertical: 2,width: 100,marginHorizontal: 45}}></FontAwesome5>
                 <Text style={styles.title}>{props.title}</Text>
             </View>
-        </Animatable.View>
+        </View>
     )
 }
 const styles = StyleSheet.create({
@@ -31,9 +28,10 @@ const styles = StyleSheet.create({
     },
     title: {
         width:100,
-        alignItems: 'flex-end',
+        alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal:45,
+        marginHorizontal:20,
+        textAlign:'center',
         fontSize:17,
     }
 
