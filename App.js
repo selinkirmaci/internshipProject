@@ -32,8 +32,19 @@ import DailyProgramPage from "./teramobil/GündemPage/DailyProgramPage";
 import NotesPage from "./teramobil/GündemPage/NotesPage";
 import MayorVisitsPage from "./teramobil/GündemPage/MayorVisitsPage";
 import {Dimensions} from "react-native";
-import App from "react-native/template/App";
 import ActivityCalendar from "./teramobil/GündemPage/ActivityCalendar";
+import PazarYeriİptalPage from "./teramobil/PolicePage/PazarYeriİptalPage";
+import PazarYeriTahsilatPage from "./teramobil/PolicePage/PazarYeriTahsilatPage";
+import PoliceHomepage from "./teramobil/PolicePage/PoliceHomepage";
+import IhalePage from "./teramobil/ProjectPage/IhalePage";
+import ProjectPage from "./teramobil/ProjectPage/ProjectPage";
+import StrategyPlanPage from "./teramobil/ProjectPage/StrategyPlanPage";
+import ProjectHomepage from "./teramobil/ProjectPage/ProjectHomepage";
+import ServiceHomepage from "./teramobil/ServicePage/ServiceHomepage";
+import BaşvurularPage from "./teramobil/ServicePage/BaşvurularPage";
+import BaşvuruTakipPage from "./teramobil/ServicePage/BaşvuruTakipPage";
+import ZabıtaVarakalarıPage from "./teramobil/ServicePage/ZabıtaVarakalarıPage";
+import WaterHomepage from "./teramobil/WaterPage/WaterHomepage";
 
 const AuthStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -69,7 +80,18 @@ const ManageDrawer = () => {
                 <Drawer.Screen name="MayorVisitsPage" component={MayorVisitsPage}/>
                 <Drawer.Screen name="GündemHomepage" component={GündemHomepage}/>
                 <Drawer.Screen name="ActivityCalendar" component={ActivityCalendar}/>
-
+                <Drawer.Screen name="PazarYeriİptalPage" component={PazarYeriİptalPage}/>
+                <Drawer.Screen name="PazarYeriTahsilatPage" component={PazarYeriTahsilatPage}/>
+                <Drawer.Screen name="PoliceHomepage" component={PoliceHomepage}/>
+                <Drawer.Screen name="IhalePage" component={IhalePage}/>
+                <Drawer.Screen name="ProjectPage" component={ProjectPage}/>
+                <Drawer.Screen name="StrategyPlanPage" component={StrategyPlanPage}/>
+                <Drawer.Screen name="ProjectHomepage" component={ProjectHomepage}/>
+                <Drawer.Screen name="ServiceHomepage" component={ServiceHomepage}/>
+                <Drawer.Screen name="BaşvurularPage" component={BaşvurularPage}/>
+                <Drawer.Screen name="BaşvuruTakipPage" component={BaşvuruTakipPage}/>
+                <Drawer.Screen name="ZabıtaVarakalarıPage" component={ZabıtaVarakalarıPage}/>
+                <Drawer.Screen name="WaterHomepage" component={WaterHomepage}/>
 
 
         </Drawer.Navigator>
