@@ -85,7 +85,7 @@ const PersonalPage = (props) => {
         <SafeAreaView style={styles.container}>
             <View style={StyleSheet.absoluteFill}>
                 <Image
-                    source={require('../assets/backgroundTeraMobile.jpeg')}
+                    source={require('../../assets/backgroundTeraMobile.jpeg')}
                     style={{flex: 1, width: null, height: null}}>
                 </Image>
             </View>

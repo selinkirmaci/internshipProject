@@ -14,8 +14,8 @@ import {
     FlatList
 } from 'react-native';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import Box from "./Box";
-import MüdürlükProfile from "./ManagementPage/MüdürlükProfile";
+import Box from "../Box";
+import MüdürlükProfile from "../ManagementPage/MüdürlükProfile";
 import MazeretModal from "./MazeretModal";
 const {width,height} = Dimensions.get('window');
 
@@ -164,7 +164,7 @@ const MazaretPage = (props) => {
             <View style={{height:height,backgroundColor:'white'}}>
                 <View style={StyleSheet.absoluteFill}>
                     <Image
-                        source={require('../assets/backgroundTeraMobile.jpeg')}
+                        source={require('../../assets/backgroundTeraMobile.jpeg')}
                         style={{flex: 1, width: null, height: null}}>
                     </Image>
                 </View>

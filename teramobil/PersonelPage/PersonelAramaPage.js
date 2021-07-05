@@ -13,7 +13,7 @@ import SearchBar from "react-native-elements";
 import Animated from "react-native-reanimated";
 import {FontAwesome, FontAwesome5} from "@expo/vector-icons";
 import PersonelProfile from "./PersonelProfile";
-import MüdürlükProfile from "./ManagementPage/MüdürlükProfile";
+import MüdürlükProfile from "../ManagementPage/MüdürlükProfile";
 
 const {width,height} = Dimensions.get('window');
 
@@ -120,7 +120,7 @@ const PersonelAramaPage = (props) => {
         <View style={styles.container}>
             <View style={StyleSheet.absoluteFill}>
                 <ImageBackground
-                    source={require('../assets/backgroundTeraMobile.jpeg')}
+                    source={require('../../assets/backgroundTeraMobile.jpeg')}
                     style={{flex: 1, width: null, height: null}}>
                 </ImageBackground>
             </View>

@@ -13,7 +13,7 @@ import {
     TouchableOpacity, ScrollView
 } from 'react-native';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import Box from "./Box";
+import Box from "../Box";
 import {FontAwesome} from "@expo/vector-icons";
 const {width,height} = Dimensions.get('window');
 
@@ -240,7 +240,7 @@ const PersonelNumbersPage = (props) => {
         <SafeAreaView style={styles.container}>
             <View style={StyleSheet.absoluteFill}>
                 <Image
-                    source={require('../assets/backgroundTeraMobile.jpeg')}
+                    source={require('../../assets/backgroundTeraMobile.jpeg')}
                     style={{flex: 1, width: null, height: null}}>
                 </Image>
             </View>

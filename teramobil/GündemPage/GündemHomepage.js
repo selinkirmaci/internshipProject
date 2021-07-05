@@ -14,7 +14,7 @@ import {
     FlatList
 } from 'react-native';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import MazeretModal from "../MazeretModal";
+import MazeretModal from "../PersonelPage/MazeretModal";
 import Box from "../Box";
 
 const {width,height} = Dimensions.get('window');

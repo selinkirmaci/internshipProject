@@ -15,7 +15,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {FontAwesome5} from "@expo/vector-icons";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import ActivityBox from "./ActivityBox";
+import ActivityBox from "../ActivityBox";
 
 const {width,height} = Dimensions.get('window');
 
@@ -42,7 +42,7 @@ const  Homepage2 = (props,{navigation,route}) => {
         <View>
             <View style={StyleSheet.absoluteFill}>
                 <Image
-                    source={require('../assets/backgroundTeraMobile.jpeg')}
+                    source={require('../../assets/backgroundTeraMobile.jpeg')}
                     style={{flex: 1, width: null, height: height}}>
                 </Image>
             </View>
@@ -105,7 +105,7 @@ const  Homepage2 = (props,{navigation,route}) => {
                         <View style={{flex:1,width:width/1.12}}>
                             <ImageBackground
                                 resizeMode='contain'
-                                source={require('../assets/news1.jpg')}
+                                source={require('../../assets/news1.jpg')}
                                 style={{flex: 1, width: null, height: height/3.5,alignContent:"flex-end",justifyContent:'flex-end'}}>
                             </ImageBackground>
                             <Text style={{fontSize:20,fontWeight:'bold',color:'black',marginLeft:5}}>ensonhaber</Text>
@@ -115,7 +115,7 @@ const  Homepage2 = (props,{navigation,route}) => {
                             <View style={{flex:1,width:width/1.12}}>
                             <ImageBackground
                                 resizeMode='contain'
-                                source={require('../assets/new3.jpg')}
+                                source={require('../../assets/new3.jpg')}
                                 style={{flex: 1, width: null, height:  height/3.5,alignContent:"flex-end",justifyContent:'flex-end'}}>
                             </ImageBackground>
                                 <Text style={{fontSize:20,fontWeight:'bold',color:'black',marginLeft:5}}>Sözcü</Text>
@@ -126,7 +126,7 @@ const  Homepage2 = (props,{navigation,route}) => {
                             <View style={{flex:1,width:width/1.12}}>
                                 <ImageBackground
                                     resizeMode='contain'
-                                    source={require('../assets/news2.jpg')}
+                                    source={require('../../assets/news2.jpg')}
                                     style={{flex: 1, width: null, height:  height/3.5,alignContent:"flex-end",justifyContent:'flex-end'}}>
                                 </ImageBackground>
                                 <Text style={{fontSize:20,fontWeight:'bold',color:'black',marginLeft:5}}>Hürriyet</Text>

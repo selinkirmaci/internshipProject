@@ -30,12 +30,12 @@ const PersonelProfile = (props) => {
                 <View style={styles.modalView}>
                     {props.item.gender==='woman'?
                         <Image
-                            source={require('../assets/womanWorker.png')}
+                            source={require('../../assets/womanWorker.png')}
                             style={{flex: 0.4, width: 500, height: 500}}
                             resizeMode='contain'>
                         </Image>:
                         <Image
-                            source={require('../assets/user.jpg')}
+                            source={require('../../assets/user.jpg')}
                             style={{flex: 0.6, width: 500, height: 500}}
                             resizeMode='contain'>
                         </Image>
