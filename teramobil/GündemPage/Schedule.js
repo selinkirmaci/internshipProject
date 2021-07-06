@@ -8,7 +8,7 @@ const timeToString = (time) => {
     return date.toISOString().split('T')[0];
 };
 
-const Schedule = () => {
+const Schedule = (props) => {
     const [items, setItems] = useState({});
 
 
@@ -66,13 +66,13 @@ const Schedule = () => {
         <View style={{flex: 1,marginTop:20}}>
             <Agenda
                 items={{
-                    '2021-07-22': [{name: 'etkinlik 1',time:'12.00-13.00'}],
-                    '2021-07-23': [{name: 'etkinlik 2',time:'12.00-13.00'}],
-                    '2021-07-24': [{name: 'etkinlik 3',time:'12.00-13.00'}],
-                    '2021-07-25': [{name: 'etkinlik 4',time:'12.00-13.00'}, {name: 'etkinlik 5',time:'12.00-13.00'}]
+                    '2021-07-22': [{name: 'randevu 1',time:'12.00-13.00'}],
+                    '2021-07-23': [{name: 'randevu 2',time:'12.00-13.00'}],
+                    '2021-07-24': [{name: 'randevu 3',time:'12.00-13.00'}],
+                    '2021-07-25': [{name: 'randevu 4',time:'12.00-13.00'}, {name: 'randevu 5',time:'12.00-13.00'}]
                 }}
 
-                loadItemsForMonth={loadItems}
+                loadItemsForMonth={props.loadItems}
                 selected={'2021-07-05'}
                 renderItem={renderItem}
             />
