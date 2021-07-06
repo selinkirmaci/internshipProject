@@ -102,7 +102,7 @@ const GündemHomepage = (props) => {
 
                     <View style={{flexDirection:'row',justifyContent:'center',marginTop:height/5-130}}>
                         <View style={{justifyContent:"center",alignItems:'center', height:50,width:width/1.2,marginHorizontal:10,borderRadius:20}}>
-                            <Text style={{fontSize:25,textAlign:'center'}}>{new Date().getDate().toString()}/{new Date().getMonth().toString()}/{new Date().getFullYear().toString()}</Text>
+                            <Text style={{fontSize:25,textAlign:'center'}}>{new Date().getDate().toString()}/{(new Date().getMonth()+1).toString()}/{new Date().getFullYear().toString()}</Text>
                         </View>
                     </View>
                     <View style={{flexDirection:'row',justifyContent:'center',marginTop:height/5-140}}>

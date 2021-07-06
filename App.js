@@ -48,6 +48,7 @@ import WaterHomepage from "./teramobil/WaterPage/WaterHomepage";
 
 const AuthStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Drawer2 = createDrawerNavigator();
 
 const ManageDrawer = () => {
     const {width} = Dimensions.get('window').width;
@@ -92,8 +93,6 @@ const ManageDrawer = () => {
                 <Drawer.Screen name="BaşvuruTakipPage" component={BaşvuruTakipPage}/>
                 <Drawer.Screen name="ZabıtaVarakalarıPage" component={ZabıtaVarakalarıPage}/>
                 <Drawer.Screen name="WaterHomepage" component={WaterHomepage}/>
-
-
         </Drawer.Navigator>
     );
 }
