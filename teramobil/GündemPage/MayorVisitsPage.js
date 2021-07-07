@@ -10,11 +10,10 @@ import {
     Button,
     Modal,
     Picker,
-    TouchableOpacity, ScrollView
+    TouchableOpacity, ScrollView, Pressable, TextInput
 } from 'react-native';
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import Box from "../Box";
-import {FontAwesome} from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
 const {width,height} = Dimensions.get('window');
 
 const MayorVisitsPage = (props) => {
@@ -77,7 +76,28 @@ const MayorVisitsPage = (props) => {
         },
     ];
 
+    const [modalVisible, setModalVisible] = React.useState(false);
+    const [startDate,setStartDate] = React.useState(new Date().getDate().toString() + "/"+(new Date().getMonth()+1).toString()+'/'+new Date().getFullYear().toString());
 
+    const [dateStart, setDateStart] = React.useState(new Date());
+    const [modeStart, setModeStart] = React.useState('date');
+    const [showStart, setShowStart] = React.useState(false);
+
+    const onChangeStart = (event, selectedDate) => {
+        const currentDateStart = selectedDate || dateStart;
+        setShowStart(Platform.OS === 'ios');
+        setDateStart(currentDateStart);
+        setStartDate(selectedDate.getDate().toString() + "/"+(currentDateStart.getMonth()+1).toString()+'/'+currentDateStart.getFullYear().toString());
+    };
+
+    const showModeStart = (currentMode) => {
+        setShowStart(true);
+        setModeStart(currentMode);
+    };
+
+    const showDatepickerStart = () => {
+        showModeStart('date');
+    };
     return (
         <SafeAreaView style={styles.container}>
             <View style={StyleSheet.absoluteFill}>
@@ -89,41 +109,86 @@ const MayorVisitsPage = (props) => {
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={modalVisibleMüdürlük}
+                visible={modalVisible}
                 onRequestClose={() => {
                     Alert.alert("Modal has been closed.");
-                    setModalVisibleMüdürlük(!modalVisibleMüdürlük);
+                    setModalVisible(!modalVisible);
                 }}
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <View style={{flexDirection:'row',width:width-50,marginTop:10,borderBottomWidth:1}}>
-                            <FontAwesome5 name='times' size={25} styles = {{marginRight:10}} onPress={()=>handleModalCloseMüdürlük(müdürlükValue,müdürlükName)}></FontAwesome5>
-                            <Text style={{fontSize:20,marginLeft:95,marginRight:80,marginBottom:8}}>Mahalleler</Text>
+                        <View style={{alignItems:'center'}}>
+                            <Text style={{fontSize:20,marginBottom:20}}>Ziyaret Detayları</Text>
                         </View>
-                        <View style={styles.picker}>
-                            <ScrollView contentContainerStyle={{width:width/1.1,alignItems:'center',justifyContent:'center'}}>
-                                {
-                                    müdürlükler.map((event,index) =>
-                                        {
-                                            return (
-                                                <TouchableOpacity style={{justifyContent:'center',alignContent:'center'}} onPress={()=>handleModalCloseMüdürlük(index+1,event.neighborhood)}>
-                                                    <Text style={{fontSize:20,marginBottom:10,marginTop:10,textAlign:'center'}}>{event.neighborhood}</Text>
-                                                </TouchableOpacity>
-                                            )
-                                        }
-                                    )
-                                }
-                            </ScrollView>
+
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Konu</Text>
+                            <TextInput style={{flex:1}} placeholder='Konu'></TextInput>
+                        </View>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Açıklama</Text>
+                            <TextInput multiline numberOfLines={4} style={{flex:1}} placeholder='Açıklama'></TextInput>
+                        </View>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Tarih</Text>
+                            <Pressable
+                                style={[styles.tarihbutton]}
+                                onPress={showDatepickerStart}
+                            >
+                                <Text style={{...styles.textStyle,color:'black'}}>{startDate}</Text>
+                            </Pressable>
+                        </View>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Tesis</Text>
+                            <TextInput style={{flex:1}} placeholder='Seçinz'></TextInput>
+                        </View>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Kurum</Text>
+                            <TextInput style={{flex:1}} placeholder='Kurum'></TextInput>
+                        </View>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <Text style={{flex:1}}>Adres</Text>
+                            <TextInput multiline numberOfLines={4} style={{flex:1}} placeholder='Adres'></TextInput>
+                        </View>
+                        {showStart?
+                            <DateTimePicker
+                                testID="dateTimePicker"
+                                value={dateStart}
+                                mode={modeStart}
+                                is24Hour={true}
+                                display="default"
+                                onChange={onChangeStart}
+                            />:null
+                        }
+                        <View style={{marginTop:40}}>
+                            <View style={{flexDirection:'row'}}>
+                                <Pressable
+                                    style={[styles.button, styles.buttonClose]}
+                                >
+                                    <Text style={styles.textStyle}>Galeriden Seç</Text>
+                                </Pressable>
+                                <Pressable
+                                    style={[styles.button, styles.buttonClose]}
+                                >
+                                    <Text style={styles.textStyle}>Yeni Fotoğraf Çek</Text>
+                                </Pressable>
+                            </View>
+                        <Pressable
+                            style={[styles.button, styles.buttonClose]}
+                            onPress={() => setModalVisible(!modalVisible)}
+                        >
+                            <Text style={styles.textStyle}>Ziyareti Kaydet</Text>
+                        </Pressable>
                         </View>
                     </View>
-
                 </View>
             </Modal>
             <View style={styles.populationView}>
                 <View style = {{flex: 2,flexDirection: 'row',alignItems:'center'}}>
                     <FontAwesome5 name='bars' size={25} styles = {{marginLeft:20,marginRight:10}} onPress={()=>{props.navigation.openDrawer();}}></FontAwesome5>
-                    <Text style={{...styles.populationTitle,fontSize:30,fontWeight:'bold',marginLeft:15}}>Başkan Ziyaretleri</Text>
+                    <Text style={{...styles.populationTitle,fontSize:30,fontWeight:'bold',marginLeft:15,marginRight:40}}>Başkan Ziyaretleri</Text>
+                    <FontAwesome5 name='plus' size={25} styles = {{marginLeft:20,marginRight:10}}  onPress={() => setModalVisible(true)}></FontAwesome5>
+
                 </View>
             </View>
             <View style={styles.chosing}>
@@ -187,15 +252,15 @@ const styles = StyleSheet.create({
     },
     centeredView: {
         flex: 1,
-        justifyContent: "flex-end",
+        justifyContent: "center",
         alignItems: "center",
-        width:width,
+        marginTop: 22
     },
     modalView: {
+        margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
-        width:width/1.055,
-        height:height/3,
+        padding: 35,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -204,12 +269,24 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
-        elevation: 5
+        elevation: 5,
+        height:height/1.2,
+        width:width/1.1,
     },
     button: {
         borderRadius: 20,
         padding: 10,
-        elevation: 2
+        elevation: 2,
+        marginHorizontal: 10,
+        marginVertical:10
+    },
+    tarihbutton:{
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+        marginLeft:-200,
+        width:150,
+        backgroundColor:'white'
     },
     buttonOpen: {
         backgroundColor: "#F194FF",

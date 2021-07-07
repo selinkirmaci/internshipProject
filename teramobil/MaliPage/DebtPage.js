@@ -115,9 +115,8 @@ const DebtPage = (props) => {
                                        style={{flex: 1, borderRadius: 10, backgroundColor: 'white', marginRight: 5}}
                                         placeholder='Minimum Tutar' keyboardType='number-pad'></TextInput>
                                 <TextInput onChange={() => handleChangeMonth()}
-                                           style={{flex: 1, borderRadius: 10, backgroundColor: 'white'}}
+                                           style={{flex: 1, borderRadius: 10, backgroundColor: 'white',marginLeft:5}}
                                             placeholder='Maksimum Tutar' keyboardType='number-pad'></TextInput>
-
                         </View>
                     </View>
 

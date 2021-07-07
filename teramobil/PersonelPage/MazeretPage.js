@@ -150,7 +150,7 @@ const MazaretPage = (props) => {
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'center',marginTop:height/3-170}}>
                     <TouchableOpacity onPress={handleSorting}>
-                        <View style={{justifyContent:"center",alignItems:'center', height:40,width:40,backgroundColor:'white',marginHorizontal:10,elevation:10,borderRadius:20}}>
+                        <View style={{justifyContent:"center",alignItems:'center',height:40,width:40,backgroundColor:'white',marginHorizontal:10,elevation:10,borderRadius:20}}>
                             <FontAwesome5 name={sortingIcon} size={20}></FontAwesome5>
                         </View>
                     </TouchableOpacity>

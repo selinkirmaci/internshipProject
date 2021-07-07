@@ -29,6 +29,22 @@ const HomepageUI = (props) => {
     const handleGündemPress = () =>{
         props.navigation.navigate('GündemHomepage');
     }
+    const handleServicePress = () =>{
+        props.navigation.navigate('ServiceHomepage');
+    }
+    const handleWaterPress = () =>{
+        props.navigation.navigate('WaterHomepage');
+    }
+    const handlePolicePress = () =>{
+        props.navigation.navigate('ProjectHomepage');
+    }
+    const handleMapPress = () =>{
+        props.navigation.navigate('GündemHomepage');
+    }
+    const handleProjectPress = () =>{
+        props.navigation.navigate('PoliceHomepage');
+    }
+
 
 
 
@@ -83,7 +99,8 @@ const HomepageUI = (props) => {
         {
             id:126,
             title: 'Hizmet Masası',
-            icons: 'headset'
+            icons: 'headset',
+            handlePress: handleServicePress,
 
         },
         {
@@ -95,19 +112,22 @@ const HomepageUI = (props) => {
         {
             id:129,
             title: 'Yatırım/Proje',
-            icons: 'handshake'
+            icons: 'handshake',
+            handlePress: handleProjectPress,
 
         },
         {
             id:130,
             title: 'Zabıta',
-            icons: 'user-tie'
+            icons: 'user-tie',
+            handlePress: handlePolicePress,
 
         },
         {
             id:131,
             title: 'Su - İş Emri',
-            icons: 'suitcase'
+            icons: 'suitcase',
+            handlePress: handleWaterPress,
 
         },
     ];
